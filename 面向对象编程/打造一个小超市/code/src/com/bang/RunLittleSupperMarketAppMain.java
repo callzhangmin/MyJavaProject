@@ -64,10 +64,10 @@ public class RunLittleSupperMarketAppMain {
                 System.out.println("欢迎" + customer.name + "光临本店");
             }
 
-
             //接待客户
             double totalCost = 0;
-            while (true) {
+            boolean isContinue = true;
+            while (isContinue) {
                 System.out.println("本店提供" + littleSuperMarket.merchandises.length + "种商品，请输入您要购买的商品编号：");
                 int merchandiseId = in.nextInt();
                 // 输入负数表示买好了。
@@ -94,7 +94,7 @@ public class RunLittleSupperMarketAppMain {
                 }
 
                 // 买的太多，库存不够
-                if (toBuy.count < numToBuy) {
+                if (numToBuy > toBuy.count) {
                     System.out.println(toBuy.name + "只有" + toBuy.count + "件了，不够" + numToBuy + "。欢迎继续选购。");
                     continue;
                 }
@@ -112,8 +112,9 @@ public class RunLittleSupperMarketAppMain {
                 toBuy.count -= numToBuy;
                 // 更新今日销货数据
                 littleSuperMarket.merchandiseSold[merchandiseId] += numToBuy;
+                isContinue = in.nextBoolean();
             }
-            customer.money-= totalCost;
+            customer.money -= totalCost;
             //归还车位
             if (customer.isDrivingCar) {
                 littleSuperMarket.parkingCount++;
@@ -125,7 +126,6 @@ public class RunLittleSupperMarketAppMain {
             open = in.nextBoolean();
         }
         System.out.println("超市关门啦！");
-
         System.out.println("今日销售额为" + littleSuperMarket.incomingSum + "。营业统计如下：");
         for (int i = 0; i < littleSuperMarket.merchandiseSold.length; i++) {
             int sold = littleSuperMarket.merchandiseSold[i];
@@ -141,3 +141,4 @@ public class RunLittleSupperMarketAppMain {
 
 
 }
+
