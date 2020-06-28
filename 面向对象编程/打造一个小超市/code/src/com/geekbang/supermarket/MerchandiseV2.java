@@ -1,5 +1,7 @@
 package com.geekbang.supermarket;
 
+import com.geekbang.mockthis.MerchandiseV2MockThis;
+
 public class MerchandiseV2 {
     public String name;
     public String id;
@@ -76,6 +78,33 @@ public class MerchandiseV2 {
     public int getIntSolePrice() {
         return (int) soldPrice;
     }
+
+    public boolean hasEnoughCountFor(int count) {
+        return this.count >= count;
+    }
+
+    public void makeEnoughFor(int count) {
+        boolean hasEnough = hasEnoughCountFor(count);
+        if (!hasEnough) {
+            int toBeAdd = count - this.count;
+            addCount(toBeAdd);
+        }
+    }
+
+    public void makeEnoughForOneByOne(int count) {
+        boolean hasEnough = this.hasEnoughCountFor(count);
+        if (!hasEnough) {
+            this.addCount(1);
+            makeEnoughForOneByOne(count);
+        }
+    }
+
+    //当方法参数与成员变量重名，方法内隐藏了this自引用
+    public void addCount(int count) {
+        this.count += count;
+        System.out.println("addCount方法的引用对象是" + this);
+    }
+
 }
 
 

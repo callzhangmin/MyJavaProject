@@ -1,5 +1,6 @@
 package com.geekbang.supermarket;
 
+
 public class LittleSuperMarket {
     public String superMarketName;
     public String address;
@@ -7,8 +8,11 @@ public class LittleSuperMarket {
     public double incomingSum;
     public MerchandiseV2[] merchandises;
     public int[] merchandiseSole;
-
+    /**
+     *
+     */
     public MerchandiseV2 getBiggestProfitMerchindise() {
+        System.out.println("LittleSuperMarket的getBiggestProfitMerchandise方法使用的对象是：" + this);
         MerchandiseV2 curr = null;
         for (int i = 0; i < merchandises.length; i++) {
             MerchandiseV2 m = merchandises[i];
