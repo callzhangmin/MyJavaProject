@@ -9,22 +9,23 @@ import java.util.Scanner;
 public class RunLittleSuperMaketAppMain {
     public static void main(String[] args) {
         LittleSuperMarket littleSuperMarKet = new LittleSuperMarket();
-        littleSuperMarKet.address = "西湖区古墩路222号";
-        littleSuperMarKet.superMarketName = "张哥超市";
-        littleSuperMarKet.parkingCount = 200;
-        littleSuperMarKet.merchandises = new MerchandiseV2[200];
-        littleSuperMarKet.merchandiseSole = new int[littleSuperMarKet.merchandises.length];
-        MerchandiseV2[] all = littleSuperMarKet.merchandises;
-        for (int i = 0; i < all.length; i++) {
-            MerchandiseV2 m = new MerchandiseV2();
-            m.count = 200;
-            m.id = "ID" + i;
-            m.name = "商品" + i;
-            m.purchasePrice = Math.random() * 200;
-            m.soldPrice = Math.random() * 200;
-            m.madeIn = "Chian";
-            all[i] = m;
-        }
+        littleSuperMarKet.init("有家超市","西湖区222号",200,200,100);
+//        littleSuperMarKet.address = "西湖区古墩路222号";
+//        littleSuperMarKet.superMarketName = "张哥超市";
+//        littleSuperMarKet.parkingCount = 200;
+//        littleSuperMarKet.merchandises = new MerchandiseV2[200];
+//        littleSuperMarKet.merchandiseSole = new int[littleSuperMarKet.merchandises.length];
+//        MerchandiseV2[] all = littleSuperMarKet.merchandises;
+//        for (int i = 0; i < all.length; i++) {
+//            MerchandiseV2 m = new MerchandiseV2();
+//            m.count = 200;
+//            m.id = "ID" + i;
+//            m.name = "商品" + i;
+//            m.purchasePrice = Math.random() * 200;
+//            m.soldPrice = Math.random() * 200;
+//            m.madeIn = "Chian";
+//            all[i] = m;
+//        }
         System.out.println("下面是利润最高的商品的介绍");
         littleSuperMarKet.getBiggestProfitMerchindise().describe();
 //        System.out.println("超市开门了");

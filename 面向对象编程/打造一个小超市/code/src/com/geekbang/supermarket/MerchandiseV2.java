@@ -10,6 +10,14 @@ public class MerchandiseV2 {
     public double purchasePrice;
     public String madeIn;
 
+    public void init(String name, String id, int count, double soldPrice, double purchasePrice) {
+        this.name = name;
+        this.id = id;
+        this.count = count;
+        this.soldPrice = soldPrice;
+        this.purchasePrice = purchasePrice;
+    }
+
     public void describe() {
         System.out.println("商品名称叫做" + name + ",id是" + id + "。商品售价" + soldPrice + "。商品进价" + purchasePrice + "。商品毛利" + count + "。生产产地是" + madeIn);
     }
